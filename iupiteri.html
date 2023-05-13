@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>გამთვლა</title>
+    <link rel="stylesheet" href="index2.css">
+    <link rel="icon" type="image/x-icon" href="img/123321123321.png">
+    <link rel="stylesheet" href="//cdn.web-fonts.ge/fonts/dejavu-sans-condensed-bold-oblique/css/dejavu-sans-condensed-bold-oblique.min.css">
+    <link rel="stylesheet" href="//cdn.web-fonts.ge/fonts/alk-sanet/css/alk-sanet.min.css">
+
+    <style>
+      li{
+    font-family: "DejaVu Sans Condensed Bold Oblique", sans-serif;
+
+  }
+        body {
+  background-image: url("img/7d192bd70b263ac2be165c9df134aed5.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: "ALK Sanet", sans-serif;
+
+}
+.placeholder{
+  font-family: "ALK Sanet", sans-serif;
+
+}
+    </style>
+</head>
+<body>
+  <ul>
+    <li class="logo"><a href="index3.html"></a></li>
+    <li><a href="index2.html">შეკვეთა</a></li>
+    <li><a href="pirobebi.html">პირობები</a></li>
+    <li><a id="dzmobilo" href="index.html">გამოსვლა</a></li>
+    <div class="user-authentication">
+      
+    </div>
+  </ul>
+      <div class="kalkuliatori">
+        <h1>გადაზიდვის შეკვეთა  </h1>
+        <p>გთოვთ გამოთვალოთ და შეუკვეთოთ თქვენი პროდუქტის გადაზიდვა</p>
+        <label for="weight">წონა კგ</label>
+        <input type="number" id="weight" placeholder="კგ">
+        <br><br>
+        <label for="length">სიგანე</label>
+        <input type="number" id="length" placeholder="სმ">
+        <br><br>
+        <label for="width">სიგრძე</label>
+        <input type="number" id="width" placeholder="სმ">
+        <br><br>
+        <label for="height">სიმაღლე</label>
+        <input type="number" id="height" placeholder="სმ">
+        <br><br>
+        <label for="Amis">A მისამართი</label>
+        <input type="number" id="Amis" placeholder="გრძედი/განედი">
+        <br><br>
+        <label for="bmis">B მისამართი</label>
+        <input type="number" id="bmis" placeholder="გრძედი/განედი">
+        <br><br>
+        <label for="mobileNumber">ტელეფონი გამშვების</label>
+<input type="tel" id="mobileNumber" placeholder="მობილური ნომერი" pattern="[0-9]{8}" required>
+<br><br>
+<label for="mobileNumber">ტელეფონი მიმღების</label>
+<input type="tel" id="mobileNumber" placeholder="მობილური ნომერი" pattern="[0-9]{8}" required>
+<br><br>
+        <button onclick="calculate()" style="background-color: black; color: white; border-radius: 5%; padding: 10px 20px; border: none; margin: 10px; cursor: pointer;">გამთვლა</button>
+<p id="result" style="color: black;"></p>
+<button onclick="resetForm()" style="background-color: black; color: white; border-radius: 5%; padding: 10px 20px; border: none; margin: 10px; cursor: pointer;">ახლიდან შეყვანა</button>
+<button id="orderButton" onclick="submitOrder()" style="display: none; background-color: black; color: white; border-radius: 5%; padding: 10px 20px; border: none; margin: 10px; cursor: pointer;">შეკვეთა</button>
+<div id="alertBox" style="display: none; background-color: #f44336; color: white; padding: 20px; border-radius: 5px; margin: 10px;">
+  <span id="alertText"></span>
+</div>
+
+      </div>
+      <script>
+     function calculate() {
+  const weight = parseFloat(document.getElementById('weight').value);
+  const length = parseFloat(document.getElementById('length').value);
+  const width = parseFloat(document.getElementById('width').value);
+  const height = parseFloat(document.getElementById('height').value);
+  const Amis = parseFloat(document.getElementById('Amis').value);
+  const bmis = parseFloat(document.getElementById('bmis').value);
+  const bamis = parseFloat(document.getElementById('mobileNumber').value);
+
+  
+  if (isNaN(weight) || isNaN(length) || isNaN(width) || isNaN(height) || isNaN(Amis) || isNaN(bmis)|| isNaN(bamis)) {
+    document.getElementById('result').textContent = 'გთხოვთ შეავსოთ ყველა ველი';
+    return;
+  }
+
+  else if (weight <= 0 || length <= 0 || width <= 0 || height <= 0 || Amis <= 0 || bmis <= 0) {
+    document.getElementById('result').textContent = 'ყველა მნიშვნელობა უნდა იყოს 0-ზე მეტი';
+    return;
+  }
+  
+
+  const volumetricWeight = (length * width * height) / 5000;
+  const chargeableWeight = Math.max(weight, volumetricWeight);
+  const shippingCost = chargeableWeight * 10;
+  document.getElementById('result').textContent = `გადაზიდვის ფასი: ${shippingCost} GEL`;
+  document.getElementById('orderButton').style.display = 'block';
+}
+
+function resetForm() {
+  document.getElementById('weight').value = '';
+  document.getElementById('length').value = '';
+  document.getElementById('width').value = '';
+  document.getElementById('height').value = '';
+  document.getElementById('Amis').value = '';
+  document.getElementById('bmis').value = '';
+  document.getElementById('bamis').value = '';
+  document.getElementById('result').textContent = '';
+  document.getElementById('orderButton').style.display = 'none';
+}
+
+function submitOrder() {
+  alert('შეკვეთა მიღებულია');
+  window.location.href = "dasturi.html";
+}
+
+
+      </script>
+      <div class="elfsight-app-cd248977-5df9-4b81-bc3f-6d3b4dd2705d"></div>
+      <div class="elfsight-app-9c7f59db-02b0-41bd-976e-5b4ca3fd85d5"></div>
+      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="icon" type="image/x-icon" href="img/123321123321.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/path/to/bpg-no9.min.css">
+  <link rel="stylesheet" href="//cdn.web-fonts.ge/fonts/dejavu-sans-condensed-bold-oblique/css/dejavu-sans-condensed-bold-oblique.min.css">
+
+<style>
+  
+  body {
+background-image: url("img/2021_mclaren_765lt_5k_2-3840x2160.jpg");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+background-repeat: no-repeat;
+
+}
+    html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "BPG No9", sans-serif;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #3a3a3a;
+}
+
+#main-holder {
+  padding: 40px;
+  width: 50%;
+  height: 70%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 2px black;
+}
+
+#login-error-msg-holder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+#login-error-msg {
+  width: 23%;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8a0000;
+  border: 1px solid #8a0000;
+  background-color: #e58f8f;
+  opacity: 0;
+}
+
+#error-msg-second-line {
+  display: block;
+}
+
+#login-form {
+  align-self: flex-start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.login-form-field::placeholder {
+  color: #3a3a3a;
+}
+
+.login-form-field {
+  border: none;
+  border-bottom: 1px solid #3a3a3a;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  outline: none;
+  padding: 0px 0px 5px 5px;
+  
+}
+
+#login-form-submit,.login-form-submit {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  outline: none;
+}
+body{
+  font-family: "DejaVu Sans Condensed Bold Oblique", sans-serif;
+}
+</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ავტორიზაცია</title>
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="login-header">შესვლა</h1>
+    
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">არასწორი ნომერი <span id="error-msg-second-line">ან პაროლი</span></p>
+    </div>
+    
+    <form id="login-form">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="მობილური">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="პაროლი">
+      <input type="submit" value="შესვლა" id="login-form-submit">
+    </form>
+   <a href="registracia.html"> <input type="submit" value="რეგისტრაცია" class="login-form-submit"> </a>
+  </main>
+  <script>
+    const loginForm = document.getElementById("login-form");
+const loginButton = document.getElementById("login-form-submit");
+const loginErrorMsg = document.getElementById("login-error-msg");
+
+loginButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const username = loginForm.username.value;
+    const password = loginForm.password.value;
+
+    if (username === "595782818" && password === "595782818") {
+        alert("თქვენ წამრატები გაიარეთ ავტორიზაცია.");
+        window.location.href = "index3.html";
+    } else {
+        loginErrorMsg.style.opacity = 1;
+    }
+})
+
+  </script>
+   <div class="elfsight-app-cd248977-5df9-4b81-bc3f-6d3b4dd2705d"></div>
+   <div class="elfsight-app-9c7f59db-02b0-41bd-976e-5b4ca3fd85d5"></div>
+   <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+   <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+</body>
+</html>
